@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weight Loss - Honour Health</title>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Honour Health - Premium Health Solutions</title>
@@ -185,8 +189,192 @@
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
+    </style>
+
+<style>
+
+        :root {
+            --primary-blue: #2563eb;
+            --secondary-blue: #1e40af;
+            --light-blue: #dbeafe;
+            --silver: #e5e7eb;
+            --dark-silver: #9ca3af;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+        }
+
+        .section {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .nav-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-item.active {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .hero-text {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-slider {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--silver);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--secondary-blue);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-top: 0;
+        }
+
+        .faq-answer.active {
+            max-height: 200px;
+            padding-top: 1rem;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-elements::before {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            right: 10%;
+            animation-delay: -2s;
+        }
+
+        .floating-elements::after {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 10%;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
     
-/* Modern pill nav */
+
+/* injected enhancements */
+/* Enhanced nav buttons */
 .nav-item {
   cursor: pointer;
   display: inline-flex;
@@ -204,15 +392,16 @@
 .nav-item:hover {
   background: var(--light-blue);
   color: var(--primary-blue);
-  box-shadow: 0 4px 10px rgba(37,99,235,0.12);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.12);
 }
 .nav-item.active {
   background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
   color: white;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 .desktop-nav { flex-wrap: nowrap; white-space: nowrap; }
+/* Dropdown */
 .nav-group { position: relative; }
 .nav-dropdown {
   position: absolute;
@@ -229,11 +418,19 @@
   z-index: 60;
 }
 .nav-group:hover .nav-dropdown { display: block; }
-.nav-dropdown .drop-item { text-decoration: none; display: block; padding: 10px 12px; border-radius: 10px; cursor: pointer; white-space: nowrap; }
-.nav-dropdown .drop-item:hover { background: var(--light-blue); color: var(--primary-blue); }
-
-/* Mobile */
-.mobile-menu { display: none; }
+.nav-dropdown .drop-item {
+  text-decoration: none;
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.nav-dropdown .drop-item:hover {
+  background: var(--light-blue);
+  color: var(--primary-blue);
+}
+/* Mobile submenu */
 .mobile-menu .nav-item {
   display: flex;
   align-items: center;
@@ -264,22 +461,20 @@
   background: #f8fafc;
   border: 1px solid var(--silver);
 }
-
 </style>
 </head>
-<body>
-
-<nav class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+<body class="bg-gray-50">
+<nav class="fixed top-0 w-full bg-white shadow-lg z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-24">
-      <div class="flex-shrink-0">
-        <a href="index.html" class="text-2xl font-bold text-blue-600">Honour Health</a>
+      <div class="flex items-center">
+        <h1 class="text-2xl font-bold hero-text"><a href="index.html">Honour Health</a></h1>
       </div>
       <div class="desktop-nav hidden md:flex flex-1 justify-center gap-3">
         <a class="nav-item" href="index.html">Home</a>
         <a class="nav-item" href="how_to.html">How To</a>
         <div class="nav-group">
-          <a id="navProducts" class="nav-item active" href="products.html">Products</a>
+          <span id="navProducts" class="nav-item">Products</span>
           <div class="nav-dropdown">
             <a class="drop-item" href="weight_loss.html">Weight Loss</a>
             <a class="drop-item" href="injury_repair.html">Injury Repair</a>
@@ -291,33 +486,32 @@
         </div>
         <a class="nav-item" href="faq.html">FAQ</a>
       </div>
-      <div class="md:hidden">
-        <button onclick="toggleMobileMenu()" class="p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-label="Open menu">
-          <i class="fas fa-bars text-xl"></i>
+      <div class="mobile-menu">
+        <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-blue-600">
+          <i class="fas fa-bars text-2xl"></i>
         </button>
       </div>
     </div>
   </div>
-  <!-- Mobile Menu -->
   <div id="mobileMenu" class="hidden bg-white shadow-lg">
     <div class="px-4 py-2 space-y-2 text-center">
-      <a class="nav-item block" href="index.html">Home</a>
-      <a class="nav-item block" href="how_to.html">How To</a>
+      <a class="nav-item block" href="index.html" onclick="toggleMobileMenu()">Home</a>
+      <a class="nav-item block" href="how_to.html" onclick="toggleMobileMenu()">How To</a>
       <div class="nav-item block" onclick="toggleMobileProducts()">Products ▾</div>
       <div id="mobileProducts" class="mobile-submenu">
-        <a class="drop-item" href="weight_loss.html">Weight Loss</a>
-        <a class="drop-item" href="injury_repair.html">Injury Repair</a>
-        <a class="drop-item" href="muscle_health.html">Muscle Health</a>
-        <a class="drop-item" href="sexual_health.html">Sexual Health</a>
-        <a class="drop-item" href="anti_ageing.html">Anti Ageing</a>
-        <a class="drop-item" href="cognitive_wellness.html">Cognitive Wellness</a>
+        <a class="drop-item" href="weight_loss.html" onclick="toggleMobileMenu()">Weight Loss</a>
+        <a class="drop-item" href="injury_repair.html" onclick="toggleMobileMenu()">Injury Repair</a>
+        <a class="drop-item" href="muscle_health.html" onclick="toggleMobileMenu()">Muscle Health</a>
+        <a class="drop-item" href="sexual_health.html" onclick="toggleMobileMenu()">Sexual Health</a>
+        <a class="drop-item" href="anti_ageing.html" onclick="toggleMobileMenu()">Anti Ageing</a>
+        <a class="drop-item" href="cognitive_wellness.html" onclick="toggleMobileMenu()">Cognitive Wellness</a>
       </div>
-      <a class="nav-item block" href="faq.html">FAQ</a>
+      <a class="nav-item block" href="faq.html" onclick="toggleMobileMenu()">FAQ</a>
     </div>
   </div>
 </nav>
-
-<section id="weightloss" class="section active">
+<div class="pt-28">
+<section id="weightloss" class="section">
         <div class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
@@ -371,16 +565,86 @@
             </div>
         </div>
     </section>
-
-<footer class="py-10 text-center text-gray-500">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <p>© Honour Health</p>
-  </div>
-</footer>
-
+</div>
+<!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Honour Health</h3>
+                    <p class="text-gray-400 mb-4">Transforming lives through premium health solutions backed by science.</p>
+                    <div class="flex space-x-4">
+                        <i class="fab fa-facebook text-2xl hover:text-blue-400 cursor-pointer"></i>
+                        <i class="fab fa-twitter text-2xl hover:text-blue-400 cursor-pointer"></i>
+                        <i class="fab fa-instagram text-2xl hover:text-blue-400 cursor-pointer"></i>
+                        <i class="fab fa-youtube text-2xl hover:text-blue-400 cursor-pointer"></i>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Weight Loss</a></li>
+                        <li><a href="#" class="hover:text-white">Muscle Health</a></li>
+                        <li><a href="#" class="hover:text-white">Cognitive Wellness</a></li>
+                        <li><a href="#" class="hover:text-white">Anti-Ageing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white">Shipping Info</a></li>
+                        <li><a href="#" class="hover:text-white">Returns</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Stay updated with the latest health tips and product news.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="flex-1 px-4 py-2 rounded-l-lg bg-gray-800 text-white border-none focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button class="bg-blue-600 px-6 py-2 rounded-r-lg hover:bg-blue-700 transition-colors">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2024 Honour Health. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
 <script>
-function toggleMobileMenu() { const m=document.getElementById('mobileMenu'); m.classList.toggle('hidden'); }
-function toggleMobileProducts() { const s=document.getElementById('mobileProducts'); s.style.display = s.style.display==='block' ? 'none' : 'block'; }
+function toggleMobileMenu() {
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (mobileMenu) mobileMenu.classList.toggle('hidden');
+}
+function toggleMobileProducts() {
+  const sub = document.getElementById('mobileProducts');
+  if (sub) sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
+}
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const path = location.pathname.split('/').pop() || 'index.html';
+    const map = {
+      'index.html': 'Home',
+      'how_to.html': 'How To',
+      'faq.html': 'FAQ',
+      'products.html': 'Products',
+      'weight_loss.html': 'Products',
+      'injury_repair.html': 'Products',
+      'muscle_health.html': 'Products',
+      'sexual_health.html': 'Products',
+      'anti_ageing.html': 'Products',
+      'cognitive_wellness.html': 'Products'
+    };
+    const label = map[path] || 'Home';
+    const items = document.querySelectorAll('.desktop-nav .nav-item, .mobile-menu .nav-item');
+    items.forEach(el => { if (el.textContent.trim() === label) el.classList.add('active'); });
+  });
 </script>
 </body>
 </html>
