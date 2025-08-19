@@ -1228,43 +1228,38 @@
     </footer>
 
     <script>
-        // Navigation functionality
-
+        
+// Navigation functionality
 function isProductSubsection(id) {
     return ['weightloss','injury','muscle','sexual','antiaging','cognitive'].includes(id);
 }
-        function showSection(sectionId) {
-            const target = document.getElementById(sectionId);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                // Update hash for direct linking
-                history.pushState(null, '', '#' + sectionId);
-            }
-            // Hide all sections
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Update navigation active state
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Find and activate the clicked nav item
-            if (isProductSubsection(sectionId)) {
-                document.getElementById('navProducts').classList.add('active');
-            } else {
-                event.target.classList.add('active');
-            }
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+function showSection(sectionId) {
+    const target = document.getElementById(sectionId);
+    if (!target) return;
+
+    // Hide all sections
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => section.classList.remove('active'));
+
+    // Show selected section
+    target.classList.add('active');
+
+    // Update navigation active state
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => item.classList.remove('active'));
+
+    // Mark Products if subsection, else try to mark the clicked item
+    if (isProductSubsection(sectionId)) {
+        const productsBtn = document.getElementById('navProducts');
+        if (productsBtn) productsBtn.classList.add('active');
+    } else if (window.event && window.event.target) {
+        window.event.target.classList.add('active');
+    }
+
+    // Update URL hash and smooth scroll to top of the shown section
+    history.pushState(null, '', '#' + sectionId);
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
         // Mobile menu toggle
         function toggleMobileMenu() {
