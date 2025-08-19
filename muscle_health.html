@@ -1,44 +1,61 @@
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muscle Health</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-:root{ --blue-900:#0b2a6b; --blue-800:#12378a; --blue-700:#1a49b5; --blue-600:#2363eb; --ink:#0f172a; }
-html,body{scroll-behavior:smooth; background:#f8fafc; color:#0f172a;}
-.nav-item{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:9999px;font-weight:600;transition:all .2s}
-.nav-item:hover{background:#e6efff;color:#1a49b5;box-shadow:0 6px 14px rgba(35,99,235,.15)}
-.nav-item.active{background:linear-gradient(135deg,#1a49b5,#0b2a6b);color:#fff;box-shadow:0 10px 18px rgba(35,99,235,.35)}
-.desktop-nav{white-space:nowrap}
-.full-bleed{position:relative;height:84vh;background-size:cover;background-position:center}
-.full-bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,20,51,.65),rgba(11,20,51,.2))}
-.container{max-width:80rem;margin:0 auto;padding:0 1.5rem}
-.badge{display:inline-flex;align-items:center;gap:.4rem;padding:6px 12px;border-radius:9999px;font-size:.82rem;font-weight:700;background:#eef5ff;color:#12378a}
-.card{border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 18px 40px rgba(2,8,23,.08);transition:transform .2s,box-shadow .2s}
-.card:hover{transform:translateY(-4px);box-shadow:0 22px 60px rgba(2,8,23,.14)}
-.card .img{height:240px;background-size:cover;background-position:center}
-.btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:#1e3a8a;color:#fff;padding:14px 28px;border-radius:9999px;font-weight:700;transition:transform .2s,background .2s}
-.btn-primary:hover{background:#2248b3;transform:translateY(-2px)}
-.footer{background:#0b1433;color:#cbd5e1}
-.footer a{color:#a7c2ff;text-decoration:none}
-.footer a:hover{text-decoration:underline}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muscle Health — Honour Health</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+  :root{ --blue-900:#0b2a6b; --blue-800:#12378a; --blue-700:#1a49b5; --blue-600:#2363eb; --ink:#0f172a; }
+  html,body{scroll-behavior:smooth; background:#f8fafc; color:#0f172a;}
+  .nav-item{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:9999px;font-weight:600;transition:all .2s;}
+  .nav-item:hover{background:#e6efff;color:#1a49b5;box-shadow:0 6px 14px rgba(35,99,235,.15)}
+  .nav-item.active{background:linear-gradient(135deg,#1a49b5,#0b2a6b);color:#fff;box-shadow:0 10px 18px rgba(35,99,235,.35)}
+  .desktop-nav{white-space:nowrap}
+  .nav-group{position:relative}
+  .nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:240px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:8px;display:none;box-shadow:0 20px 40px rgba(2,8,23,.15);z-index:60}
+  .nav-group:hover .nav-dropdown{display:block}
+  .drop-item{display:block;padding:10px 12px;border-radius:10px;font-weight:500;color:#0f172a;text-decoration:none}
+  .drop-item:hover{background:#eef5ff;color:#1a49b5}
+  .hero{position:relative;background:linear-gradient(135deg,#0b2a6b,#1a49b5);overflow:hidden}
+  .headline{font-size:clamp(2.2rem,4vw,3.6rem);line-height:1.05;font-weight:800;letter-spacing:-.02em}
+  .sub{color:#e7efff;font-size:clamp(1rem,1.5vw,1.1rem)}
+  .btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:#1e3a8a;color:#fff;padding:14px 28px;border-radius:9999px;font-weight:700;transition:transform .2s,background .2s}
+  .btn-primary:hover{background:#2248b3;transform:translateY(-2px)}
+  .btn-outline{display:inline-flex;align-items:center;gap:.6rem;background:transparent;border:2px solid #93b1ff;color:#e7efff;padding:12px 24px;border-radius:9999px;font-weight:700}
+  .btn-outline:hover{background:#e7efff;color:#0b2a6b}
+  .card{border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 18px 40px rgba(2,8,23,.08);transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 22px 60px rgba(2,8,23,.14)}
+  .card .img{height:260px;background-size:cover;background-position:center}
+  .badge{display:inline-flex;align-items:center;gap:.4rem;padding:6px 12px;border-radius:9999px;font-size:.82rem;font-weight:700;background:#eef5ff;color:#12378a}
+  .strip{background:linear-gradient(180deg,#0d2f76,#0b2a6b);color:#e7efff}
+  .full-bleed{position:relative;height:84vh;background-size:cover;background-position:center}
+  .full-bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,20,51,.65),rgba(11,20,51,.2))}
+  .footer{background:#0b1433;color:#cbd5e1}
+  .footer a{color:#a7c2ff;text-decoration:none}
+  .footer a:hover{text-decoration:underline}
+  </style>
 </head>
 <body>
 
 <nav class="fixed top-0 w-full bg-white shadow z-50">
-  <div class="container">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       <a href="index.html" class="text-2xl font-extrabold text-blue-700">Honour Health</a>
       <div class="hidden md:flex flex-1 justify-center gap-3 desktop-nav">
         <a class="nav-item " href="index.html">Home</a>
         <a class="nav-item " href="how_to.html">How To</a>
-        <div class="relative">
+        <div class="nav-group">
           <span class="nav-item active">Products</span>
-          <div class="absolute hidden group-hover:block"></div>
+          <div class="nav-dropdown">
+            <a class="drop-item" href="weight_loss.html">Weight Loss</a>
+            <a class="drop-item" href="injury_repair.html">Injury Repair</a>
+            <a class="drop-item" href="muscle_health.html">Muscle Health</a>
+            <a class="drop-item" href="sexual_health.html">Sexual Health</a>
+            <a class="drop-item" href="anti_ageing.html">Anti‑Ageing</a>
+            <a class="drop-item" href="cognitive_wellness.html">Cognitive Wellness</a>
+          </div>
         </div>
         <a class="nav-item " href="faq.html">FAQ</a>
       </div>
@@ -49,7 +66,17 @@ html,body{scroll-behavior:smooth; background:#f8fafc; color:#0f172a;}
     <div class="p-3 space-y-2 text-center">
       <a class="nav-item" href="index.html">Home</a>
       <a class="nav-item" href="how_to.html">How To</a>
-      <a class="nav-item" href="products.html">Products</a>
+      <details class="bg-gray-50 rounded-xl p-2">
+        <summary class="nav-item">Products</summary>
+        <div class="px-2 pb-3 space-y-2">
+          <a class="drop-item block" href="weight_loss.html">Weight Loss</a>
+          <a class="drop-item block" href="injury_repair.html">Injury Repair</a>
+          <a class="drop-item block" href="muscle_health.html">Muscle Health</a>
+          <a class="drop-item block" href="sexual_health.html">Sexual Health</a>
+          <a class="drop-item block" href="anti_ageing.html">Anti‑Ageing</a>
+          <a class="drop-item block" href="cognitive_wellness.html">Cognitive Wellness</a>
+        </div>
+      </details>
       <a class="nav-item" href="faq.html">FAQ</a>
     </div>
   </div>
@@ -57,30 +84,26 @@ html,body{scroll-behavior:smooth; background:#f8fafc; color:#0f172a;}
 
 <header class="full-bleed" style="background-image:url('https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=1920&q=80')">
   <div class="absolute inset-0 flex items-end pb-16">
-    <div class="container w-full">
-      <h1 class="text-4xl md:text-5xl font-extrabold text-white">Muscle Health</h1>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white relative z-10">Muscle Health</h1>
     </div>
   </div>
 </header>
-
-<section class="container py-12">
-  <div class="grid md:grid-cols-2 gap-10 items-start">
+<section class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+  <div class="grid md:grid-cols-2 gap-10 items-center">
     <div>
       <h2 class="text-2xl md:text-3xl font-extrabold text-blue-900 mb-4">Why it matters</h2>
-      <ul class="space-y-3 text-slate-700"><li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-700 mt-1"></i><span>Improve strength and endurance</span></li>
-<li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-700 mt-1"></i><span>Recover better between sessions</span></li>
-<li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-700 mt-1"></i><span>Feel sharper day to day</span></li></ul>
+      <ul class="space-y-3 text-slate-700"><li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-700 mt-1"></i><span>Improve strength and endurance</span></li><li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-700 mt-1"></i><span>Recover better between sessions</span></li><li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-700 mt-1"></i><span>Feel sharper day to day</span></li></ul>
       <a href="products.html" class="btn-primary mt-6 inline-flex">Explore related products</a>
     </div>
-    <div class="content-card">
-      <h3 class="text-xl font-bold text-blue-900 mb-3">What to expect</h3>
-      <p class="text-slate-700">Clear guidance aligned with your goals. Simple actions that fit real life, with a focus on consistency and wellbeing.</p>
+    <div class="rounded-3xl overflow-hidden shadow-2xl ring-8 ring-blue-300/20">
+      <img alt="Muscle Health people" src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=1920&q=80" class="w-full h-[420px] object-cover">
     </div>
   </div>
 </section>
 
-<footer class="footer mt-16">
-  <div class="container py-12">
+<footer class="footer">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
     <div class="grid md:grid-cols-4 gap-10">
       <div>
         <h4 class="text-white text-xl font-extrabold mb-2">Honour Health</h4>
@@ -88,7 +111,7 @@ html,body{scroll-behavior:smooth; background:#f8fafc; color:#0f172a;}
         <div class="flex gap-4 mt-4 text-blue-300 text-xl">
           <i class="fa-brands fa-facebook"></i>
           <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-x-twitter"></"></i>
+          <i class="fa-brands fa-x-twitter"></i>
           <i class="fa-brands fa-youtube"></i>
         </div>
       </div>
@@ -96,11 +119,9 @@ html,body{scroll-behavior:smooth; background:#f8fafc; color:#0f172a;}
         <h5 class="text-white font-bold mb-3">Products</h5>
         <ul class="space-y-2">
           <li><a href="weight_loss.html">Weight Loss</a></li>
-          <li><a href="injury_repair.html">Injury Repair</a></li>
           <li><a href="muscle_health.html">Muscle Health</a></li>
-          <li><a href="sexual_health.html">Sexual Health</a></li>
-          <li><a href="anti_ageing.html">Anti Ageing</a></li>
           <li><a href="cognitive_wellness.html">Cognitive Wellness</a></li>
+          <li><a href="anti_ageing.html">Anti‑Ageing</a></li>
         </ul>
       </div>
       <div>
