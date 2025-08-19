@@ -198,16 +198,16 @@
                 
                 <!-- Desktop Navigation -->
                 <div class="desktop-nav flex space-x-8">
-                    <span class="nav-item active" onclick="showSection('homepage')">Home</span>
-                    <span class="nav-item" onclick="showSection('howto')">How To</span>
-                    <span class="nav-item" onclick="showSection('products')">Products</span>
-                    <span class="nav-item" onclick="showSection('weightloss')">Weight Loss</span>
-                    <span class="nav-item" onclick="showSection('injury')">Injury Repair</span>
-                    <span class="nav-item" onclick="showSection('muscle')">Muscle Health</span>
-                    <span class="nav-item" onclick="showSection('sexual')">Sexual Health</span>
-                    <span class="nav-item" onclick="showSection('antiaging')">Anti Ageing</span>
-                    <span class="nav-item" onclick="showSection('cognitive')">Cognitive Wellness</span>
-                    <span class="nav-item" onclick="showSection('faq')">FAQ</span>
+                    <span class="nav-item active" onclick="showSection(event, 'homepage')">Home</span>
+                    <span class="nav-item" onclick="showSection(event, 'howto')">How To</span>
+                    <span class="nav-item" onclick="showSection(event, 'products')">Products</span>
+                    <span class="nav-item" onclick="showSection(event, 'weightloss')">Weight Loss</span>
+                    <span class="nav-item" onclick="showSection(event, 'injury')">Injury Repair</span>
+                    <span class="nav-item" onclick="showSection(event, 'muscle')">Muscle Health</span>
+                    <span class="nav-item" onclick="showSection(event, 'sexual')">Sexual Health</span>
+                    <span class="nav-item" onclick="showSection(event, 'antiaging')">Anti Ageing</span>
+                    <span class="nav-item" onclick="showSection(event, 'cognitive')">Cognitive Wellness</span>
+                    <span class="nav-item" onclick="showSection(event, 'faq')">FAQ</span>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -222,16 +222,16 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden bg-white shadow-lg">
             <div class="px-4 py-2 space-y-2">
-                <div class="nav-item block py-2" onclick="showSection('homepage'); toggleMobileMenu()">Home</div>
-                <div class="nav-item block py-2" onclick="showSection('howto'); toggleMobileMenu()">How To</div>
-                <div class="nav-item block py-2" onclick="showSection('products'); toggleMobileMenu()">Products</div>
-                <div class="nav-item block py-2" onclick="showSection('weightloss'); toggleMobileMenu()">Weight Loss</div>
-                <div class="nav-item block py-2" onclick="showSection('injury'); toggleMobileMenu()">Injury Repair</div>
-                <div class="nav-item block py-2" onclick="showSection('muscle'); toggleMobileMenu()">Muscle Health</div>
-                <div class="nav-item block py-2" onclick="showSection('sexual'); toggleMobileMenu()">Sexual Health</div>
-                <div class="nav-item block py-2" onclick="showSection('antiaging'); toggleMobileMenu()">Anti Ageing</div>
-                <div class="nav-item block py-2" onclick="showSection('cognitive'); toggleMobileMenu()">Cognitive Wellness</div>
-                <div class="nav-item block py-2" onclick="showSection('faq'); toggleMobileMenu()">FAQ</div>
+                <div class="nav-item block py-2" onclick="showSection(event, 'homepage'); toggleMobileMenu()">Home</div>
+                <div class="nav-item block py-2" onclick="showSection(event, 'howto'); toggleMobileMenu()">How To</div>
+                <div class="nav-item block py-2" onclick="showSection(event, 'products'); toggleMobileMenu()">Products</div>
+                <div class="nav-item block py-2" onclick="showSection(event, 'weightloss'); toggleMobileMenu()">Weight Loss</div>
+                <div class="nav-item block py-2" onclick="showSection(event, 'injury'); toggleMobileMenu()">Injury Repair</div>
+                <div class="nav-item block py-2" onclick="showSection(event, 'muscle'); toggleMobileMenu()">Muscle Health</div>
+                <div class="nav-item block py-2" onclick="showSection(event, 'sexual'); toggleMobileMenu()">Sexual Health</div>
+                <div class="nav-item block py-2" onclick="showSection(event, 'antiaging'); toggleMobileMenu()">Anti Ageing</div>
+                <div class="nav-item block py-2" onclick="showSection(event, 'cognitive'); toggleMobileMenu()">Cognitive Wellness</div>
+                <div class="nav-item block py-2" onclick="showSection(event, 'faq'); toggleMobileMenu()">FAQ</div>
             </div>
         </div>
     </nav>
@@ -245,7 +245,7 @@
                 <div class="text-center">
                     <h1 class="text-5xl md:text-7xl font-bold mb-6">Transform Your Health</h1>
                     <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Premium health solutions designed to optimize your wellbeing, performance, and longevity</p>
-                    <button class="btn-primary text-lg px-8 py-4" onclick="showSection('products')">Explore Products</button>
+                    <button class="btn-primary text-lg px-8 py-4" onclick="showSection(event, 'products')">Explore Products</button>
                 </div>
             </div>
         </div>
@@ -569,7 +569,7 @@
                             <li class="flex items-center"><i class="fas fa-heart text-red-500 mr-3"></i>Supports cardiovascular health</li>
                             <li class="flex items-center"><i class="fas fa-brain text-blue-500 mr-3"></i>Enhances mental clarity and focus</li>
                         </ul>
-                        <button class="btn-primary" onclick="showSection('products')">Shop Weight Loss</button>
+                        <button class="btn-primary" onclick="showSection(event, 'products')">Shop Weight Loss</button>
                     </div>
                 </div>
 
@@ -1134,32 +1134,10 @@
             </div>
         </div>
     </footer>
+    <script src="navigation.js"></script>
 
     <script>
         // Navigation functionality
-        function showSection(sectionId) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Update navigation active state
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Find and activate the clicked nav item
-            event.target.classList.add('active');
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
         // Mobile menu toggle
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
