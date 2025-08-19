@@ -69,18 +69,31 @@
         }
 
         .nav-item {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 9999px;
+    background: transparent;
+    border: 1px solid transparent;
+    transition: all 0.25s ease;
+    font-weight: 500;
+}
 
         .nav-item:hover {
-            color: var(--primary-blue);
-        }
+    background: var(--light-blue);
+    color: var(--primary-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.12);
+}
 
         .nav-item.active {
-            color: var(--primary-blue);
-            font-weight: 600;
-        }
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
 
         .hero-text {
             background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
@@ -132,9 +145,30 @@
             padding-top: 1rem;
         }
 
-        .mobile-menu {
-            display: none;
-        }
+        .mobile-menu { display: none; }
+.mobile-menu .nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    margin: 6px 0;
+    border-radius: 9999px;
+    background: #f8fafc;
+    border: 1px solid var(--silver);
+    transition: all 0.25s ease;
+    font-weight: 500;
+}
+.mobile-menu .nav-item:hover {
+    background: var(--light-blue);
+    color: var(--primary-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.12);
+}
+.mobile-menu .nav-item.active {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: white;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
 
         @media (max-width: 768px) {
             .desktop-nav {
@@ -191,13 +225,13 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between items-center h-24">
                 <div class="flex items-center">
                     <h1 class="text-2xl font-bold hero-text">Honour Health</h1>
                 </div>
                 
                 <!-- Desktop Navigation -->
-                <div class="desktop-nav flex space-x-8">
+                <div class="desktop-nav hidden md:flex flex-1 justify-center gap-3">
                     <span class="nav-item active" onclick="showSection('homepage')">Home</span>
                     <span class="nav-item" onclick="showSection('howto')">How To</span>
                     <span class="nav-item" onclick="showSection('products')">Products</span>
@@ -221,7 +255,7 @@
 
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden bg-white shadow-lg">
-            <div class="px-4 py-2 space-y-2">
+            <div class="px-4 py-2 space-y-2 text-center">
                 <div class="nav-item block py-2" onclick="showSection('homepage'); toggleMobileMenu()">Home</div>
                 <div class="nav-item block py-2" onclick="showSection('howto'); toggleMobileMenu()">How To</div>
                 <div class="nav-item block py-2" onclick="showSection('products'); toggleMobileMenu()">Products</div>
