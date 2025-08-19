@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honour Health - Premium Health Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --secondary-blue: #1e40af;
+            --light-blue: #dbeafe;
+            --silver: #e5e7eb;
+            --dark-silver: #9ca3af;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+        }
+
+        .section {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .nav-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-item.active {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .hero-text {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-slider {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--silver);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--secondary-blue);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-top: 0;
+        }
+
+        .faq-answer.active {
+            max-height: 200px;
+            padding-top: 1rem;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-elements::before {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            right: 10%;
+            animation-delay: -2s;
+        }
+
+        .floating-elements::after {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 10%;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    
+/* Modern pill nav */
+.nav-item {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 24px;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.nav-item:hover {
+  background: var(--light-blue);
+  color: var(--primary-blue);
+  box-shadow: 0 4px 10px rgba(37,99,235,0.12);
+}
+.nav-item.active {
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+}
+.desktop-nav { flex-wrap: nowrap; white-space: nowrap; }
+.nav-group { position: relative; }
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 240px;
+  background: white;
+  border: 1px solid var(--silver);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 16px 30px rgba(0,0,0,0.08);
+  display: none;
+  z-index: 60;
+}
+.nav-group:hover .nav-dropdown { display: block; }
+.nav-dropdown .drop-item { text-decoration: none; display: block; padding: 10px 12px; border-radius: 10px; cursor: pointer; white-space: nowrap; }
+.nav-dropdown .drop-item:hover { background: var(--light-blue); color: var(--primary-blue); }
+
+/* Mobile */
+.mobile-menu { display: none; }
+.mobile-menu .nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  margin: 6px 0;
+  border-radius: 9999px;
+  background: #f8fafc;
+  border: 1px solid var(--silver);
+  transition: all 0.25s ease;
+  font-weight: 500;
+}
+.mobile-menu .nav-item:hover {
+  background: var(--light-blue);
+  color: var(--primary-blue);
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.12);
+}
+.mobile-menu .nav-item.active {
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  color: white;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+.mobile-submenu { display: none; padding: 6px 0; }
+.mobile-submenu .drop-item {
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin: 6px 0;
+  background: #f8fafc;
+  border: 1px solid var(--silver);
+}
+
+</style>
+</head>
+<body>
+
+<nav class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-24">
+      <div class="flex-shrink-0">
+        <a href="index.html" class="text-2xl font-bold text-blue-600">Honour Health</a>
+      </div>
+      <div class="desktop-nav hidden md:flex flex-1 justify-center gap-3">
+        <a class="nav-item active" href="index.html">Home</a>
+        <a class="nav-item" href="how_to.html">How To</a>
+        <div class="nav-group">
+          <a id="navProducts" class="nav-item" href="products.html">Products</a>
+          <div class="nav-dropdown">
+            <a class="drop-item" href="weight_loss.html">Weight Loss</a>
+            <a class="drop-item" href="injury_repair.html">Injury Repair</a>
+            <a class="drop-item" href="muscle_health.html">Muscle Health</a>
+            <a class="drop-item" href="sexual_health.html">Sexual Health</a>
+            <a class="drop-item" href="anti_ageing.html">Anti Ageing</a>
+            <a class="drop-item" href="cognitive_wellness.html">Cognitive Wellness</a>
+          </div>
+        </div>
+        <a class="nav-item" href="faq.html">FAQ</a>
+      </div>
+      <div class="md:hidden">
+        <button onclick="toggleMobileMenu()" class="p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-label="Open menu">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden bg-white shadow-lg">
+    <div class="px-4 py-2 space-y-2 text-center">
+      <a class="nav-item block" href="index.html">Home</a>
+      <a class="nav-item block" href="how_to.html">How To</a>
+      <div class="nav-item block" onclick="toggleMobileProducts()">Products ▾</div>
+      <div id="mobileProducts" class="mobile-submenu">
+        <a class="drop-item" href="weight_loss.html">Weight Loss</a>
+        <a class="drop-item" href="injury_repair.html">Injury Repair</a>
+        <a class="drop-item" href="muscle_health.html">Muscle Health</a>
+        <a class="drop-item" href="sexual_health.html">Sexual Health</a>
+        <a class="drop-item" href="anti_ageing.html">Anti Ageing</a>
+        <a class="drop-item" href="cognitive_wellness.html">Cognitive Wellness</a>
+      </div>
+      <a class="nav-item block" href="faq.html">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<section id="homepage" class="section active">
+        <!-- Hero Section -->
+        <div class="relative gradient-bg text-white py-20">
+            <div class="floating-elements"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6">Transform Your Health</h1>
+                    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Premium health solutions designed to optimize your wellbeing, performance, and longevity</p>
+                    <button class="btn-primary text-lg px-8 py-4" onclick="showSection('products')">Explore Products</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Why Choose Honour Health?</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">We combine cutting-edge science with natural ingredients to deliver results you can feel</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-microscope text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Science-Backed</h3>
+                        <p class="text-gray-600">Every formula is researched and tested using the latest scientific methods</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-leaf text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Natural Ingredients</h3>
+                        <p class="text-gray-600">Premium, sustainably sourced ingredients for optimal bioavailability</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-award text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Premium Quality</h3>
+                        <p class="text-gray-600">Manufactured in certified facilities with rigorous quality control</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Products -->
+        <div class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Featured Products</h2>
+                    <p class="text-xl text-gray-600">Our most popular health solutions</p>
+                </div>
+                
+                <div class="product-grid">
+                    <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7d7caa5c-332a-468f-96aa-36af319772dd.png" alt="Premium weight loss supplement bottle with blue and silver label on clean white background" class="w-full h-64 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">MetaBoost Pro</h3>
+                            <p class="text-gray-600 mb-4">Advanced weight management formula</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-600">$89.99</span>
+                                <button class="btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/665ae5bb-61e9-4819-a526-30842a29eb5a.png" alt="Muscle recovery supplement in sleek blue container with silver accents and fitness imagery" class="w-full h-64 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">MuscleRecover Max</h3>
+                            <p class="text-gray-600 mb-4">Rapid muscle recovery and growth</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-600">$79.99</span>
+                                <button class="btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/154ce1cd-b54f-4c6d-baa0-28e0402e7ba8.png" alt="Cognitive enhancement supplement in modern blue and white packaging with brain health graphics" class="w-full h-64 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">MindSharp Elite</h3>
+                            <p class="text-gray-600 mb-4">Enhanced cognitive performance</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-600">$99.99</span>
+                                <button class="btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">What Our Customers Say</h2>
+                </div>
+                
+                <div class="testimonial-slider">
+                    <div class="testimonial-track" id="testimonialTrack">
+                        <div class="min-w-full px-4">
+                            <div class="bg-gray-50 p-8 rounded-xl text-center max-w-4xl mx-auto">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/511cc4bd-19f9-4e5a-956b-bab1964b4ed5.png" alt="Professional headshot of satisfied customer Sarah Johnson with genuine smile" class="w-20 h-20 rounded-full mx-auto mb-6" />
+                                <p class="text-xl mb-6 italic">"Honour Health products have completely transformed my energy levels and overall wellbeing. I feel like a new person!"</p>
+                                <div class="text-blue-600 font-bold">Sarah Johnson</div>
+                                <div class="text-gray-600">Verified Customer</div>
+                            </div>
+                        </div>
+                        
+                        <div class="min-w-full px-4">
+                            <div class="bg-gray-50 p-8 rounded-xl text-center max-w-4xl mx-auto">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9937e307-d547-4729-9eca-bdcc42f2350a.png" alt="Professional headshot of fitness enthusiast Mike Chen in athletic wear" class="w-20 h-20 rounded-full mx-auto mb-6" />
+                                <p class="text-xl mb-6 italic">"The muscle recovery formula has revolutionized my training. I'm seeing gains I never thought possible."</p>
+                                <div class="text-blue-600 font-bold">Mike Chen</div>
+                                <div class="text-gray-600">Fitness Enthusiast</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button onclick="previousTestimonial()" class="w-3 h-3 rounded-full bg-blue-600"></button>
+                    <button onclick="nextTestimonial()" class="w-3 h-3 rounded-full bg-gray-300"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<footer class="py-10 text-center text-gray-500">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p>© Honour Health</p>
+  </div>
+</footer>
+
+<script>
+function toggleMobileMenu() { const m=document.getElementById('mobileMenu'); m.classList.toggle('hidden'); }
+function toggleMobileProducts() { const s=document.getElementById('mobileProducts'); s.style.display = s.style.display==='block' ? 'none' : 'block'; }
+</script>
+</body>
+</html>
