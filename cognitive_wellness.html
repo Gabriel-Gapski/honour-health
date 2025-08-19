@@ -32,15 +32,12 @@
             color: #1f2937;
         }
 
-        .section {
-            display: none;
+        .section { display: block;
             min-height: 100vh;
             padding-top: 80px;
         }
 
-        .section.active {
-            display: block;
-        }
+        
 
         .gradient-bg {
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
@@ -214,15 +211,12 @@
             color: #1f2937;
         }
 
-        .section {
-            display: none;
+        .section { display: block;
             min-height: 100vh;
             padding-top: 80px;
         }
 
-        .section.active {
-            display: block;
-        }
+        
 
         .gradient-bg {
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
@@ -511,7 +505,7 @@
   </div>
 </nav>
 <div class="pt-28">
-<section id="cognitive" class="section">
+<section id="cognitive" class="section active">
         <div class="py-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
@@ -655,33 +649,19 @@
     </footer>
 <script>
 function toggleMobileMenu() {
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (mobileMenu) mobileMenu.classList.toggle('hidden');
+  const m = document.getElementById('mobileMenu');
+  if (m) m.classList.toggle('hidden');
 }
 function toggleMobileProducts() {
   const sub = document.getElementById('mobileProducts');
   if (sub) sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
 }
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const path = location.pathname.split('/').pop() || 'index.html';
-    const map = {
-      'index.html': 'Home',
-      'how_to.html': 'How To',
-      'faq.html': 'FAQ',
-      'products.html': 'Products',
-      'weight_loss.html': 'Products',
-      'injury_repair.html': 'Products',
-      'muscle_health.html': 'Products',
-      'sexual_health.html': 'Products',
-      'anti_ageing.html': 'Products',
-      'cognitive_wellness.html': 'Products'
-    };
-    const label = map[path] || 'Home';
-    const items = document.querySelectorAll('.desktop-nav .nav-item, .mobile-menu .nav-item');
-    items.forEach(el => { if (el.textContent.trim() === label) el.classList.add('active'); });
-  });
+function toggleFaq(index) {
+  const answer = document.getElementById('answer-' + index);
+  const icon = document.getElementById('icon-' + index);
+  if (answer) answer.classList.toggle('active');
+  if (icon) icon.classList.toggle('rotate-180');
+}
 </script>
 </body>
 </html>
