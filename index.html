@@ -247,7 +247,7 @@
     z-index: 60;
 }
 .nav-group:hover .nav-dropdown { display: block; }
-.nav-dropdown .drop-item {
+.nav-dropdown .drop-item { text-decoration: none; display: block;
     padding: 10px 12px;
     border-radius: 10px;
     cursor: pointer;
@@ -286,12 +286,12 @@
     <div class="nav-group">
         <span id="navProducts" class="nav-item">Products</span>
         <div class="nav-dropdown">
-            <div class="drop-item" onclick="showSection('weightloss')">Weight Loss</div>
-            <div class="drop-item" onclick="showSection('injury')">Injury Repair</div>
-            <div class="drop-item" onclick="showSection('muscle')">Muscle Health</div>
-            <div class="drop-item" onclick="showSection('sexual')">Sexual Health</div>
-            <div class="drop-item" onclick="showSection('antiaging')">Anti Ageing</div>
-            <div class="drop-item" onclick="showSection('cognitive')">Cognitive Wellness</div>
+            <a class="drop-item" href="#weightloss" onclick="showSection('weightloss'); return false;">Weight Loss</a>
+            <a class="drop-item" href="#injury" onclick="showSection('injury'); return false;">Injury Repair</a>
+            <a class="drop-item" href="#muscle" onclick="showSection('muscle'); return false;">Muscle Health</a>
+            <a class="drop-item" href="#sexual" onclick="showSection('sexual'); return false;">Sexual Health</a>
+            <a class="drop-item" href="#antiaging" onclick="showSection('antiaging'); return false;">Anti Ageing</a>
+            <a class="drop-item" href="#cognitive" onclick="showSection('cognitive'); return false;">Cognitive Wellness</a>
         </div>
     </div>
 
@@ -315,12 +315,12 @@
 
         <div class="nav-item block" onclick="toggleMobileProducts()">Products ▾</div>
         <div id="mobileProducts" class="mobile-submenu">
-            <div class="drop-item" onclick="showSection('weightloss'); toggleMobileMenu()">Weight Loss</div>
-            <div class="drop-item" onclick="showSection('injury'); toggleMobileMenu()">Injury Repair</div>
-            <div class="drop-item" onclick="showSection('muscle'); toggleMobileMenu()">Muscle Health</div>
-            <div class="drop-item" onclick="showSection('sexual'); toggleMobileMenu()">Sexual Health</div>
-            <div class="drop-item" onclick="showSection('antiaging'); toggleMobileMenu()">Anti Ageing</div>
-            <div class="drop-item" onclick="showSection('cognitive'); toggleMobileMenu()">Cognitive Wellness</div>
+            <a class="drop-item" href="#weightloss" onclick="showSection('weightloss'); toggleMobileMenu(); return false;">Weight Loss</a>
+            <a class="drop-item" href="#injury" onclick="showSection('injury'); toggleMobileMenu(); return false;">Injury Repair</a>
+            <a class="drop-item" href="#muscle" onclick="showSection('muscle'); toggleMobileMenu(); return false;">Muscle Health</a>
+            <a class="drop-item" href="#sexual" onclick="showSection('sexual'); toggleMobileMenu(); return false;">Sexual Health</a>
+            <a class="drop-item" href="#antiaging" onclick="showSection('antiaging'); toggleMobileMenu(); return false;">Anti Ageing</a>
+            <a class="drop-item" href="#cognitive" onclick="showSection('cognitive'); toggleMobileMenu(); return false;">Cognitive Wellness</a>
         </div>
 
         <div class="nav-item block" onclick="showSection('faq'); toggleMobileMenu()">FAQ</div>
@@ -1234,6 +1234,12 @@ function isProductSubsection(id) {
     return ['weightloss','injury','muscle','sexual','antiaging','cognitive'].includes(id);
 }
         function showSection(sectionId) {
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Update hash for direct linking
+                history.pushState(null, '', '#' + sectionId);
+            }
             // Hide all sections
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
