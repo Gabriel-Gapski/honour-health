@@ -1,150 +1,383 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ — Honour Health</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-  :root{ --blue-900:#0b2a6b; --blue-800:#12378a; --blue-700:#1a49b5; --blue-600:#2363eb; --ink:#0f172a; }
-  html,body{scroll-behavior:smooth; background:#f8fafc; color:#0f172a;}
-  .nav-item{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:9999px;font-weight:600;transition:all .2s;}
-  .nav-item:hover{background:#e6efff;color:#1a49b5;box-shadow:0 6px 14px rgba(35,99,235,.15)}
-  .nav-item.active{background:linear-gradient(135deg,#1a49b5,#0b2a6b);color:#fff;box-shadow:0 10px 18px rgba(35,99,235,.35)}
-  .desktop-nav{white-space:nowrap}
-  .nav-group{position:relative}
-  .nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:240px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:8px;display:none;box-shadow:0 20px 40px rgba(2,8,23,.15);z-index:60}
-  .nav-group:hover .nav-dropdown{display:block}
-  .drop-item{display:block;padding:10px 12px;border-radius:10px;font-weight:500;color:#0f172a;text-decoration:none}
-  .drop-item:hover{background:#eef5ff;color:#1a49b5}
-  .hero{position:relative;background:linear-gradient(135deg,#0b2a6b,#1a49b5);overflow:hidden}
-  .headline{font-size:clamp(2.2rem,4vw,3.6rem);line-height:1.05;font-weight:800;letter-spacing:-.02em}
-  .sub{color:#e7efff;font-size:clamp(1rem,1.5vw,1.1rem)}
-  .btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:#1e3a8a;color:#fff;padding:14px 28px;border-radius:9999px;font-weight:700;transition:transform .2s,background .2s}
-  .btn-primary:hover{background:#2248b3;transform:translateY(-2px)}
-  .btn-outline{display:inline-flex;align-items:center;gap:.6rem;background:transparent;border:2px solid #93b1ff;color:#e7efff;padding:12px 24px;border-radius:9999px;font-weight:700}
-  .btn-outline:hover{background:#e7efff;color:#0b2a6b}
-  .card{border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 18px 40px rgba(2,8,23,.08);transition:transform .2s,box-shadow .2s}
-  .card:hover{transform:translateY(-4px);box-shadow:0 22px 60px rgba(2,8,23,.14)}
-  .card .img{height:260px;background-size:cover;background-position:center}
-  .badge{display:inline-flex;align-items:center;gap:.4rem;padding:6px 12px;border-radius:9999px;font-size:.82rem;font-weight:700;background:#eef5ff;color:#12378a}
-  .strip{background:linear-gradient(180deg,#0d2f76,#0b2a6b);color:#e7efff}
-  .full-bleed{position:relative;height:84vh;background-size:cover;background-position:center}
-  .full-bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,20,51,.65),rgba(11,20,51,.2))}
-  .footer{background:#0b1433;color:#cbd5e1}
-  .footer a{color:#a7c2ff;text-decoration:none}
-  .footer a:hover{text-decoration:underline}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Honour Health</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --secondary-blue: #1e40af;
+            --light-blue: #dbeafe;
+            --silver: #e5e7eb;
+            --dark-silver: #9ca3af;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+        }
+
+        .section {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .nav-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-item.active {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .hero-text {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-slider {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--silver);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--secondary-blue);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-top: 0;
+        }
+
+        .faq-answer.active {
+            max-height: 200px;
+            padding-top: 1rem;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-elements::before {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            right: 10%;
+            animation-delay: -2s;
+        }
+
+        .floating-elements::after {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 10%;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
 </head>
 <body>
 
-<nav class="fixed top-0 w-full bg-white shadow z-50">
+<nav class="fixed top-0 w-full bg-white shadow-lg z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20">
-      <a href="index.html" class="text-2xl font-extrabold text-blue-700">Honour Health</a>
-      <div class="hidden md:flex flex-1 justify-center gap-3 desktop-nav">
+    <div class="flex justify-between items-center h-20">
+      <div class="flex items-center">
+        <h1 class="text-2xl font-bold hero-text"><a href="index.html">Honour Health</a></h1>
+      </div>
+
+      <div class="desktop-nav flex space-x-8">
         <a class="nav-item " href="index.html">Home</a>
         <a class="nav-item " href="how_to.html">How To</a>
-        <div class="nav-group">
-          <span class="nav-item ">Products</span>
-          <div class="nav-dropdown">
-            <a class="drop-item" href="weight_loss.html">Weight Loss</a>
-            <a class="drop-item" href="injury_repair.html">Injury Repair</a>
-            <a class="drop-item" href="muscle_health.html">Muscle Health</a>
-            <a class="drop-item" href="sexual_health.html">Sexual Health</a>
-            <a class="drop-item" href="anti_ageing.html">Anti‑Ageing</a>
-            <a class="drop-item" href="cognitive_wellness.html">Cognitive Wellness</a>
-          </div>
-        </div>
+        <a class="nav-item " href="products.html">Products</a>
+        <a class="nav-item" href="weight_loss.html">Weight Loss</a>
+        <a class="nav-item" href="injury_repair.html">Injury Repair</a>
+        <a class="nav-item" href="muscle_health.html">Muscle Health</a>
+        <a class="nav-item" href="sexual_health.html">Sexual Health</a>
+        <a class="nav-item" href="anti_ageing.html">Anti Ageing</a>
+        <a class="nav-item" href="cognitive_wellness.html">Cognitive Wellness</a>
         <a class="nav-item active" href="faq.html">FAQ</a>
       </div>
-      <button class="md:hidden text-blue-800 text-2xl" onclick="document.getElementById('mNav').classList.toggle('hidden')"><i class="fas fa-bars"></i></button>
+
+      <div class="mobile-menu">
+        <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-blue-600">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
     </div>
-  </div>
-  <div id="mNav" class="md:hidden hidden bg-white border-t">
-    <div class="p-3 space-y-2 text-center">
-      <a class="nav-item" href="index.html">Home</a>
-      <a class="nav-item" href="how_to.html">How To</a>
-      <details class="bg-gray-50 rounded-xl p-2">
-        <summary class="nav-item">Products</summary>
-        <div class="px-2 pb-3 space-y-2">
-          <a class="drop-item block" href="weight_loss.html">Weight Loss</a>
-          <a class="drop-item block" href="injury_repair.html">Injury Repair</a>
-          <a class="drop-item block" href="muscle_health.html">Muscle Health</a>
-          <a class="drop-item block" href="sexual_health.html">Sexual Health</a>
-          <a class="drop-item block" href="anti_ageing.html">Anti‑Ageing</a>
-          <a class="drop-item block" href="cognitive_wellness.html">Cognitive Wellness</a>
-        </div>
-      </details>
-      <a class="nav-item" href="faq.html">FAQ</a>
+
+    <div id="mobile-menu" class="hidden bg-white shadow-md rounded-lg p-4 mt-2">
+      <a class="nav-item block py-2" href="index.html">Home</a>
+      <a class="nav-item block py-2" href="how_to.html">How To</a>
+      <a class="nav-item block py-2" href="products.html">Products</a>
+      <a class="nav-item block py-2" href="weight_loss.html">Weight Loss</a>
+      <a class="nav-item block py-2" href="injury_repair.html">Injury Repair</a>
+      <a class="nav-item block py-2" href="muscle_health.html">Muscle Health</a>
+      <a class="nav-item block py-2" href="sexual_health.html">Sexual Health</a>
+      <a class="nav-item block py-2" href="anti_ageing.html">Anti Ageing</a>
+      <a class="nav-item block py-2" href="cognitive_wellness.html">Cognitive Wellness</a>
+      <a class="nav-item block py-2" href="faq.html">FAQ</a>
     </div>
   </div>
 </nav>
 
-<header class="hero pt-28">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-14">
-    <h1 class="headline text-white">Frequently asked questions</h1>
-    <p class="sub mt-4">Short and clear answers.</p>
-  </div>
-</header>
-<section class="max-w-3xl mx-auto px-6 lg:px-8 py-12">
-  <div class="divide-y divide-slate-200">
-    <details class="py-4 group">
-      <summary class="font-semibold cursor-pointer flex items-center justify-between">When will my order ship?<i class="fa-solid fa-chevron-down transition group-open:rotate-180"></i></summary>
-      <p class="text-slate-700 mt-2 pl-1">Most orders leave the warehouse within two business days.</p>
-    </details>
-    <details class="py-4 group">
-      <summary class="font-semibold cursor-pointer flex items-center justify-between">Can I return a product?<i class="fa-solid fa-chevron-down transition group-open:rotate-180"></i></summary>
-      <p class="text-slate-700 mt-2 pl-1">Yes, returns are accepted within 30 days if the item is unopened.</p>
-    </details>
-    <details class="py-4 group">
-      <summary class="font-semibold cursor-pointer flex items-center justify-between">Do you ship Australia wide?<i class="fa-solid fa-chevron-down transition group-open:rotate-180"></i></summary>
-      <p class="text-slate-700 mt-2 pl-1">Yes, standard and express options are available.</p>
-    </details>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-    <div class="grid md:grid-cols-4 gap-10">
-      <div>
-        <h4 class="text-white text-xl font-extrabold mb-2">Honour Health</h4>
-        <p class="text-blue-200">Transforming lives with solutions grounded in science and real life.</p>
-        <div class="flex gap-4 mt-4 text-blue-300 text-xl">
-          <i class="fa-brands fa-facebook"></i>
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-x-twitter"></i>
-          <i class="fa-brands fa-youtube"></i>
+<section id="faq" >
+        <div class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold mb-6">Frequently Asked Questions</h1>
+                    <p class="text-xl text-gray-600">Get answers to common questions about our products and services</p>
+                </div>
+                
+                <div class="space-y-4">
+                    {.section faqItems}
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq({@index})">
+                            <h3>{question}</h3>
+                            <i class="fas fa-chevron-down transition-transform duration-300" id="icon-{@index}"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-{@index}">
+                            <p class="text-gray-600">{answer}</p>
+                        </div>
+                    </div>
+                    {.end}
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(1)">
+                            <h3>How long does it take to see results?</h3>
+                            <i class="fas fa-chevron-down transition-transform duration-300" id="icon-1"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-1">
+                            <p class="text-gray-600">Results vary by individual and product. Some people notice improvements within the first week, while others may take 4-6 weeks to experience full benefits. Consistency is key for optimal results.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(2)">
+                            <h3>Can I take multiple products together?</h3>
+                            <i class="fas fa-chevron-down transition-transform duration-300" id="icon-2"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-2">
+                            <p class="text-gray-600">Many of our products are designed to complement each other. However, we recommend consulting with your healthcare provider before combining supplements, especially if you have existing health conditions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(3)">
+                            <h3>Do you offer a money-back guarantee?</h3>
+                            <i class="fas fa-chevron-down transition-transform duration-300" id="icon-3"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-3">
+                            <p class="text-gray-600">Yes, we offer a 60-day money-back guarantee on all our products. If you're not completely satisfied with your results, contact our customer service team for a full refund.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(4)">
+                            <h3>Are your products suitable for vegetarians/vegans?</h3>
+                            <i class="fas fa-chevron-down transition-transform duration-300" id="icon-4"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-4">
+                            <p class="text-gray-600">Most of our products are vegetarian-friendly, and many are vegan. Check the individual product labels for specific dietary information, or contact us if you have questions about particular ingredients.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(5)">
+                            <h3>How should I store my supplements?</h3>
+                            <i class="fas fa-chevron-down transition-transform duration-300" id="icon-5"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-5">
+                            <p class="text-gray-600">Store all supplements in a cool, dry place away from direct sunlight. Keep containers tightly sealed and away from moisture. Do not store in bathrooms or other humid areas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(6)">
+                            <h3>Do you ship internationally?</h3>
+                            <i class="fas fa-chevron-down transition-transform duration-300" id="icon-6"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-6">
+                            <p class="text-gray-600">Currently, we ship to most countries worldwide. Shipping costs and delivery times vary by location. International customers are responsible for any customs duties or taxes that may apply.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(7)">
+                            <h3>Can I cancel or modify my order?</h3>
+                            <i class="fas fa-chevron-down transition-transform duration-300" id="icon-7"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-7">
+                            <p class="text-gray-600">Orders can be cancelled or modified within 2 hours of placement. After this time, orders are processed for shipping and cannot be changed. Contact customer service immediately if you need to make changes.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <p class="text-gray-600 mb-6">Still have questions? We're here to help!</p>
+                    <button class="btn-primary">Contact Support</button>
+                </div>
+            </div>
         </div>
-      </div>
-      <div>
-        <h5 class="text-white font-bold mb-3">Products</h5>
-        <ul class="space-y-2">
-          <li><a href="weight_loss.html">Weight Loss</a></li>
-          <li><a href="muscle_health.html">Muscle Health</a></li>
-          <li><a href="cognitive_wellness.html">Cognitive Wellness</a></li>
-          <li><a href="anti_ageing.html">Anti‑Ageing</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5 class="text-white font-bold mb-3">Support</h5>
-        <ul class="space-y-2">
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="how_to.html">How To</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5 class="text-white font-bold mb-3">Newsletter</h5>
-        <div class="flex bg-blue-950 rounded-2xl overflow-hidden ring-1 ring-blue-800">
-          <input class="flex-1 bg-transparent px-4 py-3 text-blue-100 placeholder-blue-300 outline-none" placeholder="Your email">
-          <button class="px-4 py-3 bg-blue-600 text-white font-bold">Subscribe</button>
+    </section>
+<footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Honour Health</h3>
+                    <p class="text-gray-400 mb-4">Transforming lives through premium health solutions backed by science.</p>
+                    <div class="flex space-x-4">
+                        <i class="fab fa-facebook text-2xl hover:text-blue-400 cursor-pointer"></i>
+                        <i class="fab fa-twitter text-2xl hover:text-blue-400 cursor-pointer"></i>
+                        <i class="fab fa-instagram text-2xl hover:text-blue-400 cursor-pointer"></i>
+                        <i class="fab fa-youtube text-2xl hover:text-blue-400 cursor-pointer"></i>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Weight Loss</a></li>
+                        <li><a href="#" class="hover:text-white">Muscle Health</a></li>
+                        <li><a href="#" class="hover:text-white">Cognitive Wellness</a></li>
+                        <li><a href="#" class="hover:text-white">Anti-Ageing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white">Shipping Info</a></li>
+                        <li><a href="#" class="hover:text-white">Returns</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Stay updated with the latest health tips and product news.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="flex-1 px-4 py-2 rounded-l-lg bg-gray-800 text-white border-none focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button class="bg-blue-600 px-6 py-2 rounded-r-lg hover:bg-blue-700 transition-colors">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2024 Honour Health. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
         </div>
-      </div>
-    </div>
-    <hr class="border-blue-900/40 my-8">
-    <p class="text-center text-blue-300 text-sm">© 2025 Honour Health. All rights reserved.</p>
-  </div>
-</footer>
+    </footer>
 </body>
 </html>
