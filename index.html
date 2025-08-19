@@ -55,6 +55,19 @@ html,body{scroll-behavior:smooth; background:#f8fafc; color:#0f172a;}
 .footer a{ color:#a7c2ff; text-decoration:none; }
 .footer a:hover{ text-decoration:underline; }
 </style>
+
+<style>
+.full-bleed{position:relative;height:84vh;background-size:cover;background-position:center}
+.full-bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,20,51,.65),rgba(11,20,51,.2))}
+.container{max-width:80rem;margin:0 auto;padding:0 1.5rem}
+.card{border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 18px 40px rgba(2,8,23,.08)}
+.card .img{height:240px;background-size:cover;background-position:center}
+.badge{display:inline-flex;align-items:center;gap:.4rem;padding:6px 12px;border-radius:9999px;font-size:.82rem;font-weight:700;background:#eef5ff;color:#12378a}
+.btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:#1e3a8a;color:#fff;padding:12px 22px;border-radius:9999px;font-weight:700}
+.faq i{transition:transform .2s}
+details[open] summary i{transform:rotate(180deg)}
+</style>
+
 </head>
 <body>
 
@@ -100,7 +113,39 @@ html,body{scroll-behavior:smooth; background:#f8fafc; color:#0f172a;}
       <a class="nav-item" href="faq.html">FAQ</a>
     </div>
   </div>
-</nav>
+\1
+
+<header class="full-bleed" style="background-image:url('https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?auto=format&fit=crop&w=1920&q=80')">
+  <div class="absolute inset-0 flex items-end pb-16">
+    <div class="container w-full">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white">Honour Health</h1>
+    </div>
+  </div>
+\1
+
+<section class="container py-12">
+  <h2 class="text-2xl md:text-3xl font-extrabold text-blue-900 mb-6">Featured</h2>
+  <div class="grid md:grid-cols-4 gap-6">
+    <a href="weight_loss.html" class="card">
+      <div class="img" style="background-image:url('https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="p-5"><div class="badge mb-2">Metabolism</div><h3 class="text-xl font-bold text-blue-900">Weight Loss</h3></div>
+    </a>
+    <a href="injury_repair.html" class="card">
+      <div class="img" style="background-image:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="p-5"><div class="badge mb-2">Recovery</div><h3 class="text-xl font-bold text-blue-900">Injury Repair</h3></div>
+    </a>
+    <a href="muscle_health.html" class="card">
+      <div class="img" style="background-image:url('https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="p-5"><div class="badge mb-2">Energy</div><h3 class="text-xl font-bold text-blue-900">Muscle Health</h3></div>
+    </a>
+    <a href="sexual_health.html" class="card">
+      <div class="img" style="background-image:url('https://images.unsplash.com/photo-1519751138087-5a9b0e1d2d36?auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="p-5"><div class="badge mb-2">Intimacy</div><h3 class="text-xl font-bold text-blue-900">Sexual Health</h3></div>
+    </a>
+  </div>
+</section>
+
+
 
 <!-- Hero -->
 <header class="hero pt-28">
