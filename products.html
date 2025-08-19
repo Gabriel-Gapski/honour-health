@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products — Honour Health</title>
+  <title>Products</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
   :root{ --blue-900:#0b2a6b; --blue-800:#12378a; --blue-700:#1a49b5; --blue-600:#2363eb; --ink:#0f172a; }
   html,body{scroll-behavior:smooth; background:#f8fafc; color:#0f172a;}
-  .nav-item{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:9999px;font-weight:600;transition:all .2s;}
+  .nav-item{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:9999px;font-weight:600;transition:all .2s}
   .nav-item:hover{background:#e6efff;color:#1a49b5;box-shadow:0 6px 14px rgba(35,99,235,.15)}
   .nav-item.active{background:linear-gradient(135deg,#1a49b5,#0b2a6b);color:#fff;box-shadow:0 10px 18px rgba(35,99,235,.35)}
   .desktop-nav{white-space:nowrap}
@@ -25,22 +25,20 @@
   .btn-primary:hover{background:#2248b3;transform:translateY(-2px)}
   .btn-outline{display:inline-flex;align-items:center;gap:.6rem;background:transparent;border:2px solid #93b1ff;color:#e7efff;padding:12px 24px;border-radius:9999px;font-weight:700}
   .btn-outline:hover{background:#e7efff;color:#0b2a6b}
-  .card{border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 18px 40px rgba(2,8,23,.08);transition:transform .2s,box-shadow .2s}
-  .card:hover{transform:translateY(-4px);box-shadow:0 22px 60px rgba(2,8,23,.14)}
-  .card .img{height:260px;background-size:cover;background-position:center}
-  .badge{display:inline-flex;align-items:center;gap:.4rem;padding:6px 12px;border-radius:9999px;font-size:.82rem;font-weight:700;background:#eef5ff;color:#12378a}
-  .strip{background:linear-gradient(180deg,#0d2f76,#0b2a6b);color:#e7efff}
+  .container{max-width:80rem;margin:0 auto;padding:0 1.5rem}
+  .content-card{background:#ffffff;border-radius:20px;box-shadow:0 18px 40px rgba(2,8,23,.08);padding:24px}
   .full-bleed{position:relative;height:84vh;background-size:cover;background-position:center}
   .full-bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,20,51,.65),rgba(11,20,51,.2))}
   .footer{background:#0b1433;color:#cbd5e1}
   .footer a{color:#a7c2ff;text-decoration:none}
   .footer a:hover{text-decoration:underline}
+  .section{display:block !important; opacity:1 !important; transform:none !important}
   </style>
 </head>
 <body>
 
 <nav class="fixed top-0 w-full bg-white shadow z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="container">
     <div class="flex items-center justify-between h-20">
       <a href="index.html" class="text-2xl font-extrabold text-blue-700">Honour Health</a>
       <div class="hidden md:flex flex-1 justify-center gap-3 desktop-nav">
@@ -53,7 +51,7 @@
             <a class="drop-item" href="injury_repair.html">Injury Repair</a>
             <a class="drop-item" href="muscle_health.html">Muscle Health</a>
             <a class="drop-item" href="sexual_health.html">Sexual Health</a>
-            <a class="drop-item" href="anti_ageing.html">Anti‑Ageing</a>
+            <a class="drop-item" href="anti_ageing.html">Anti Ageing</a>
             <a class="drop-item" href="cognitive_wellness.html">Cognitive Wellness</a>
           </div>
         </div>
@@ -73,7 +71,7 @@
           <a class="drop-item block" href="injury_repair.html">Injury Repair</a>
           <a class="drop-item block" href="muscle_health.html">Muscle Health</a>
           <a class="drop-item block" href="sexual_health.html">Sexual Health</a>
-          <a class="drop-item block" href="anti_ageing.html">Anti‑Ageing</a>
+          <a class="drop-item block" href="anti_ageing.html">Anti Ageing</a>
           <a class="drop-item block" href="cognitive_wellness.html">Cognitive Wellness</a>
         </div>
       </details>
@@ -83,42 +81,125 @@
 </nav>
 
 <header class="hero pt-28">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-14">
-    <h1 class="headline text-white">Products for real life</h1>
-    <p class="sub mt-4">Choose a path and dive in.</p>
+  <div class="container py-12">
+    <h1 class="headline text-white">Products</h1>
+    <p class="sub mt-3">Original grid and content.</p>
   </div>
 </header>
-<section class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-  <div class="grid md:grid-cols-3 gap-6">
-    <a href="weight_loss.html" class="card">
-      <div class="img" style="background-image:url('https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?auto=format&fit=crop&w=1600&q=80')"></div>
-      <div class="p-5"><div class="badge mb-3">Metabolism</div><h3 class="text-xl font-bold text-blue-900">Weight Loss</h3></div>
-    </a>
-    <a href="injury_repair.html" class="card">
-      <div class="img" style="background-image:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1600&q=80')"></div>
-      <div class="p-5"><div class="badge mb-3">Recovery</div><h3 class="text-xl font-bold text-blue-900">Injury Repair</h3></div>
-    </a>
-    <a href="muscle_health.html" class="card">
-      <div class="img" style="background-image:url('https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=1600&q=80')"></div>
-      <div class="p-5"><div class="badge mb-3">Energy</div><h3 class="text-xl font-bold text-blue-900">Muscle Health</h3></div>
-    </a>
-    <a href="sexual_health.html" class="card">
-      <div class="img" style="background-image:url('https://images.unsplash.com/photo-1519751138087-5a9b0e1d2d36?auto=format&fit=crop&w=1600&q=80')"></div>
-      <div class="p-5"><div class="badge mb-3">Intimacy</div><h3 class="text-xl font-bold text-blue-900">Sexual Health</h3></div>
-    </a>
-    <a href="anti_ageing.html" class="card">
-      <div class="img" style="background-image:url('https://images.unsplash.com/photo-1551991765-388c0a9a0b05?auto=format&fit=crop&w=1600&q=80')"></div>
-      <div class="p-5"><div class="badge mb-3">Longevity</div><h3 class="text-xl font-bold text-blue-900">Anti‑Ageing</h3></div>
-    </a>
-    <a href="cognitive_wellness.html" class="card">
-      <div class="img" style="background-image:url('https://images.unsplash.com/photo-1529336953121-4ca0dd3a08d9?auto=format&fit=crop&w=1600&q=80')"></div>
-      <div class="p-5"><div class="badge mb-3">Focus</div><h3 class="text-xl font-bold text-blue-900">Cognitive Wellness</h3></div>
-    </a>
-  </div>
-</section>
+<div class="container"><section id="products" class="content-card mt-10">
+        <div class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold mb-6">Our Product Range</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive health solutions for every aspect of your wellness journey</p>
+                </div>
+                
+                <div class="product-grid">
+                    {.section product}
+                    <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="{product.imageUrl}" alt="{product.name}" class="w-full h-64 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">{product.name}</h3>
+                            <p class="text-gray-600 mb-4">{product.description}</p>
+                            <div class="mb-4">
+                                {.repeated section product.tags}
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-2">{@|html}</span>
+                                {.end}
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-600">{product.price}</span>
+                                <button class="btn-primary" data-product-id="{product.id}">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    {.end}
+                    
+                    <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/65149f04-77b4-44ba-bdb5-484eeb8010a0.png" alt="MuscleRecover Max supplement container with silver accents and muscle fiber graphics" class="w-full h-64 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">MuscleRecover Max</h3>
+                            <p class="text-gray-600 mb-4">Rapid muscle recovery and growth formula with advanced amino acid complex</p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-2">Recovery</span>
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Muscle Growth</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-600">$79.99</span>
+                                <button class="btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/daf2d17e-1c44-48bc-81a3-bf04f9d69f92.png" alt="MindSharp Elite cognitive supplement with brain network graphics and nootropic ingredient highlights" class="w-full h-64 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">MindSharp Elite</h3>
+                            <p class="text-gray-600 mb-4">Premium nootropic blend for enhanced cognitive performance and mental clarity</p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-2">Focus</span>
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Memory</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-600">$99.99</span>
+                                <button class="btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/86b927ed-8b8e-4c38-b777-f314fa769115.png" alt="VitalityBoost sexual health supplement with elegant blue packaging and confidence imagery" class="w-full h-64 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">VitalityBoost</h3>
+                            <p class="text-gray-600 mb-4">Natural sexual health enhancement for improved performance and confidence</p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-2">Vitality</span>
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Performance</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-600">$94.99</span>
+                                <button class="btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cf797e46-aaa2-4650-9293-8915060025b7.png" alt="YouthRenew anti-aging supplement with silver accents and cellular regeneration graphics" class="w-full h-64 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">YouthRenew</h3>
+                            <p class="text-gray-600 mb-4">Advanced anti-aging formula with cellular regeneration complex</p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-2">Anti-Aging</span>
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Longevity</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-600">$109.99</span>
+                                <button class="btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2a394233-87f6-4af8-a93f-4173934ee0a7.png" alt="FlexiJoint injury repair supplement with joint mobility graphics and recovery imagery" class="w-full h-64 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">FlexiJoint</h3>
+                            <p class="text-gray-600 mb-4">Comprehensive joint health and injury repair support formula</p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mr-2">Joint Health</span>
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Recovery</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-600">$84.99</span>
+                                <button class="btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section></div>
 
-<footer class="footer">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+<footer class="footer mt-16">
+  <div class="container py-12">
     <div class="grid md:grid-cols-4 gap-10">
       <div>
         <h4 class="text-white text-xl font-extrabold mb-2">Honour Health</h4>
@@ -136,7 +217,7 @@
           <li><a href="weight_loss.html">Weight Loss</a></li>
           <li><a href="muscle_health.html">Muscle Health</a></li>
           <li><a href="cognitive_wellness.html">Cognitive Wellness</a></li>
-          <li><a href="anti_ageing.html">Anti‑Ageing</a></li>
+          <li><a href="anti_ageing.html">Anti Ageing</a></li>
         </ul>
       </div>
       <div>

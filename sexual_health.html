@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sexual Health — Honour Health</title>
+  <title>Sexual Health</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
   :root{ --blue-900:#0b2a6b; --blue-800:#12378a; --blue-700:#1a49b5; --blue-600:#2363eb; --ink:#0f172a; }
   html,body{scroll-behavior:smooth; background:#f8fafc; color:#0f172a;}
-  .nav-item{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:9999px;font-weight:600;transition:all .2s;}
+  .nav-item{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:9999px;font-weight:600;transition:all .2s}
   .nav-item:hover{background:#e6efff;color:#1a49b5;box-shadow:0 6px 14px rgba(35,99,235,.15)}
   .nav-item.active{background:linear-gradient(135deg,#1a49b5,#0b2a6b);color:#fff;box-shadow:0 10px 18px rgba(35,99,235,.35)}
   .desktop-nav{white-space:nowrap}
@@ -25,22 +25,20 @@
   .btn-primary:hover{background:#2248b3;transform:translateY(-2px)}
   .btn-outline{display:inline-flex;align-items:center;gap:.6rem;background:transparent;border:2px solid #93b1ff;color:#e7efff;padding:12px 24px;border-radius:9999px;font-weight:700}
   .btn-outline:hover{background:#e7efff;color:#0b2a6b}
-  .card{border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 18px 40px rgba(2,8,23,.08);transition:transform .2s,box-shadow .2s}
-  .card:hover{transform:translateY(-4px);box-shadow:0 22px 60px rgba(2,8,23,.14)}
-  .card .img{height:260px;background-size:cover;background-position:center}
-  .badge{display:inline-flex;align-items:center;gap:.4rem;padding:6px 12px;border-radius:9999px;font-size:.82rem;font-weight:700;background:#eef5ff;color:#12378a}
-  .strip{background:linear-gradient(180deg,#0d2f76,#0b2a6b);color:#e7efff}
+  .container{max-width:80rem;margin:0 auto;padding:0 1.5rem}
+  .content-card{background:#ffffff;border-radius:20px;box-shadow:0 18px 40px rgba(2,8,23,.08);padding:24px}
   .full-bleed{position:relative;height:84vh;background-size:cover;background-position:center}
   .full-bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,20,51,.65),rgba(11,20,51,.2))}
   .footer{background:#0b1433;color:#cbd5e1}
   .footer a{color:#a7c2ff;text-decoration:none}
   .footer a:hover{text-decoration:underline}
+  .section{display:block !important; opacity:1 !important; transform:none !important}
   </style>
 </head>
 <body>
 
 <nav class="fixed top-0 w-full bg-white shadow z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="container">
     <div class="flex items-center justify-between h-20">
       <a href="index.html" class="text-2xl font-extrabold text-blue-700">Honour Health</a>
       <div class="hidden md:flex flex-1 justify-center gap-3 desktop-nav">
@@ -53,7 +51,7 @@
             <a class="drop-item" href="injury_repair.html">Injury Repair</a>
             <a class="drop-item" href="muscle_health.html">Muscle Health</a>
             <a class="drop-item" href="sexual_health.html">Sexual Health</a>
-            <a class="drop-item" href="anti_ageing.html">Anti‑Ageing</a>
+            <a class="drop-item" href="anti_ageing.html">Anti Ageing</a>
             <a class="drop-item" href="cognitive_wellness.html">Cognitive Wellness</a>
           </div>
         </div>
@@ -73,7 +71,7 @@
           <a class="drop-item block" href="injury_repair.html">Injury Repair</a>
           <a class="drop-item block" href="muscle_health.html">Muscle Health</a>
           <a class="drop-item block" href="sexual_health.html">Sexual Health</a>
-          <a class="drop-item block" href="anti_ageing.html">Anti‑Ageing</a>
+          <a class="drop-item block" href="anti_ageing.html">Anti Ageing</a>
           <a class="drop-item block" href="cognitive_wellness.html">Cognitive Wellness</a>
         </div>
       </details>
@@ -82,28 +80,74 @@
   </div>
 </nav>
 
-<header class="full-bleed" style="background-image:url('https://images.unsplash.com/photo-1519751138087-5a9b0e1d2d36?auto=format&fit=crop&w=1920&q=80')">
-  <div class="absolute inset-0 flex items-end pb-16">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-      <h1 class="text-4xl md:text-5xl font-extrabold text-white relative z-10">Sexual Health</h1>
-    </div>
+<header class="hero pt-28">
+  <div class="container py-12">
+    <h1 class="headline text-white">Sexual Health</h1>
   </div>
 </header>
-<section class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-  <div class="grid md:grid-cols-2 gap-10 items-center">
-    <div>
-      <h2 class="text-2xl md:text-3xl font-extrabold text-blue-900 mb-4">Why it matters</h2>
-      <ul class="space-y-3 text-slate-700"><li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-700 mt-1"></i><span>Confidence and connection</span></li><li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-700 mt-1"></i><span>Balance, energy and mood</span></li><li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-700 mt-1"></i><span>Support intimacy at any age</span></li></ul>
-      <a href="products.html" class="btn-primary mt-6 inline-flex">Explore related products</a>
-    </div>
-    <div class="rounded-3xl overflow-hidden shadow-2xl ring-8 ring-blue-300/20">
-      <img alt="Sexual Health people" src="https://images.unsplash.com/photo-1519751138087-5a9b0e1d2d36?auto=format&fit=crop&w=1920&q=80" class="w-full h-[420px] object-cover">
-    </div>
-  </div>
-</section>
+<div class="container"><section id="sexual" class="content-card mt-10">
+        <div class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold mb-6">Sexual Health & Vitality</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Enhance your confidence and performance with our natural sexual health solutions</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6">Rediscover Your Vitality</h2>
+                        <p class="text-gray-600 mb-6">VitalityBoost is formulated with premium natural ingredients that support healthy blood flow, hormone balance, and overall sexual wellness.</p>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center">
+                                <i class="fas fa-heart text-red-500 mr-3"></i>
+                                <span>Improved circulation and blood flow</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-bolt text-yellow-500 mr-3"></i>
+                                <span>Enhanced energy and stamina</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-balance-scale text-blue-500 mr-3"></i>
+                                <span>Natural hormone balance support</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-smile text-green-500 mr-3"></i>
+                                <span>Increased confidence and mood</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary">Boost Your Vitality</button>
+                    </div>
+                    <div>
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2565352b-6509-484f-8a4e-d34fde0f134b.png" alt="Happy confident couple enjoying intimate moment together in romantic setting" class="rounded-xl shadow-lg" />
+                    </div>
+                </div>
 
-<footer class="footer">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+                <div class="bg-white rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Natural Ingredients</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center p-6 border rounded-lg">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50ee5ed9-0c33-4fe5-b281-59d7b42f0d85.png" alt="Ginseng root extract in natural form showing premium quality" class="w-20 h-20 mx-auto mb-4 rounded-full" />
+                            <h4 class="font-bold mb-2">Premium Ginseng</h4>
+                            <p class="text-sm text-gray-600">Supports energy and vitality</p>
+                        </div>
+                        <div class="text-center p-6 border rounded-lg">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/38390eaf-94fb-4291-afcf-8b7bb03f778a.png" alt="L-Arginine amino acid molecular structure in scientific visualization" class="w-20 h-20 mx-auto mb-4 rounded-full" />
+                            <h4 class="font-bold mb-2">L-Arginine</h4>
+                            <p class="text-sm text-gray-600">Promotes healthy blood flow</p>
+                        </div>
+                        <div class="text-center p-6 border rounded-lg">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4eebde46-6cc6-43c3-ab2a-0c20714d12d0.png" alt="Tribulus Terrestris plant extract showing natural herbal potency" class="w-20 h-20 mx-auto mb-4 rounded-full" />
+                            <h4 class="font-bold mb-2">Tribulus Terrestris</h4>
+                            <p class="text-sm text-gray-600">Supports natural hormone levels</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section></div>
+
+<footer class="footer mt-16">
+  <div class="container py-12">
     <div class="grid md:grid-cols-4 gap-10">
       <div>
         <h4 class="text-white text-xl font-extrabold mb-2">Honour Health</h4>
@@ -121,7 +165,7 @@
           <li><a href="weight_loss.html">Weight Loss</a></li>
           <li><a href="muscle_health.html">Muscle Health</a></li>
           <li><a href="cognitive_wellness.html">Cognitive Wellness</a></li>
-          <li><a href="anti_ageing.html">Anti‑Ageing</a></li>
+          <li><a href="anti_ageing.html">Anti Ageing</a></li>
         </ul>
       </div>
       <div>

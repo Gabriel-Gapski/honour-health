@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Injury Repair — Honour Health</title>
+  <title>Injury Repair</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
   :root{ --blue-900:#0b2a6b; --blue-800:#12378a; --blue-700:#1a49b5; --blue-600:#2363eb; --ink:#0f172a; }
   html,body{scroll-behavior:smooth; background:#f8fafc; color:#0f172a;}
-  .nav-item{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:9999px;font-weight:600;transition:all .2s;}
+  .nav-item{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:9999px;font-weight:600;transition:all .2s}
   .nav-item:hover{background:#e6efff;color:#1a49b5;box-shadow:0 6px 14px rgba(35,99,235,.15)}
   .nav-item.active{background:linear-gradient(135deg,#1a49b5,#0b2a6b);color:#fff;box-shadow:0 10px 18px rgba(35,99,235,.35)}
   .desktop-nav{white-space:nowrap}
@@ -25,22 +25,20 @@
   .btn-primary:hover{background:#2248b3;transform:translateY(-2px)}
   .btn-outline{display:inline-flex;align-items:center;gap:.6rem;background:transparent;border:2px solid #93b1ff;color:#e7efff;padding:12px 24px;border-radius:9999px;font-weight:700}
   .btn-outline:hover{background:#e7efff;color:#0b2a6b}
-  .card{border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 18px 40px rgba(2,8,23,.08);transition:transform .2s,box-shadow .2s}
-  .card:hover{transform:translateY(-4px);box-shadow:0 22px 60px rgba(2,8,23,.14)}
-  .card .img{height:260px;background-size:cover;background-position:center}
-  .badge{display:inline-flex;align-items:center;gap:.4rem;padding:6px 12px;border-radius:9999px;font-size:.82rem;font-weight:700;background:#eef5ff;color:#12378a}
-  .strip{background:linear-gradient(180deg,#0d2f76,#0b2a6b);color:#e7efff}
+  .container{max-width:80rem;margin:0 auto;padding:0 1.5rem}
+  .content-card{background:#ffffff;border-radius:20px;box-shadow:0 18px 40px rgba(2,8,23,.08);padding:24px}
   .full-bleed{position:relative;height:84vh;background-size:cover;background-position:center}
   .full-bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,20,51,.65),rgba(11,20,51,.2))}
   .footer{background:#0b1433;color:#cbd5e1}
   .footer a{color:#a7c2ff;text-decoration:none}
   .footer a:hover{text-decoration:underline}
+  .section{display:block !important; opacity:1 !important; transform:none !important}
   </style>
 </head>
 <body>
 
 <nav class="fixed top-0 w-full bg-white shadow z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="container">
     <div class="flex items-center justify-between h-20">
       <a href="index.html" class="text-2xl font-extrabold text-blue-700">Honour Health</a>
       <div class="hidden md:flex flex-1 justify-center gap-3 desktop-nav">
@@ -53,7 +51,7 @@
             <a class="drop-item" href="injury_repair.html">Injury Repair</a>
             <a class="drop-item" href="muscle_health.html">Muscle Health</a>
             <a class="drop-item" href="sexual_health.html">Sexual Health</a>
-            <a class="drop-item" href="anti_ageing.html">Anti‑Ageing</a>
+            <a class="drop-item" href="anti_ageing.html">Anti Ageing</a>
             <a class="drop-item" href="cognitive_wellness.html">Cognitive Wellness</a>
           </div>
         </div>
@@ -73,7 +71,7 @@
           <a class="drop-item block" href="injury_repair.html">Injury Repair</a>
           <a class="drop-item block" href="muscle_health.html">Muscle Health</a>
           <a class="drop-item block" href="sexual_health.html">Sexual Health</a>
-          <a class="drop-item block" href="anti_ageing.html">Anti‑Ageing</a>
+          <a class="drop-item block" href="anti_ageing.html">Anti Ageing</a>
           <a class="drop-item block" href="cognitive_wellness.html">Cognitive Wellness</a>
         </div>
       </details>
@@ -82,28 +80,90 @@
   </div>
 </nav>
 
-<header class="full-bleed" style="background-image:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1920&q=80')">
-  <div class="absolute inset-0 flex items-end pb-16">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-      <h1 class="text-4xl md:text-5xl font-extrabold text-white relative z-10">Injury Repair</h1>
-    </div>
+<header class="hero pt-28">
+  <div class="container py-12">
+    <h1 class="headline text-white">Injury Repair</h1>
   </div>
 </header>
-<section class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-  <div class="grid md:grid-cols-2 gap-10 items-center">
-    <div>
-      <h2 class="text-2xl md:text-3xl font-extrabold text-blue-900 mb-4">Why it matters</h2>
-      <ul class="space-y-3 text-slate-700"><li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-700 mt-1"></i><span>Reduce pain and stiffness</span></li><li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-700 mt-1"></i><span>Regain mobility with confidence</span></li><li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-700 mt-1"></i><span>Return to the activities you love</span></li></ul>
-      <a href="products.html" class="btn-primary mt-6 inline-flex">Explore related products</a>
-    </div>
-    <div class="rounded-3xl overflow-hidden shadow-2xl ring-8 ring-blue-300/20">
-      <img alt="Injury Repair people" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1920&q=80" class="w-full h-[420px] object-cover">
-    </div>
-  </div>
-</section>
+<div class="container"><section id="injury" class="content-card mt-10">
+        <div class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold mb-6">Injury Repair Program</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Accelerate healing and recovery with our specialized injury repair formulations</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6">Faster Recovery, Stronger Return</h2>
+                        <p class="text-gray-600 mb-6">Our FlexiJoint formula is specifically designed to support your body's natural healing processes, reduce inflammation, and strengthen injured tissues.</p>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold">Anti-Inflammatory Action</h4>
+                                    <p class="text-gray-600 text-sm">Reduces swelling and pain naturally</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold">Tissue Regeneration</h4>
+                                    <p class="text-gray-600 text-sm">Promotes faster healing at the cellular level</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold">Joint Support</h4>
+                                    <p class="text-gray-600 text-sm">Strengthens cartilage and connective tissue</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-primary">Start Recovery Program</button>
+                    </div>
+                    <div>
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5f975ef3-440f-4510-894c-68e766b30b27.png" alt="Physical therapy session showing patient recovering from injury with professional guidance" class="rounded-xl shadow-lg" />
+                    </div>
+                </div>
 
-<footer class="footer">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-bold mb-4">Acute Injuries</h3>
+                        <p class="text-gray-600 mb-4">Immediate support for recent injuries</p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>• Sprains and strains</li>
+                            <li>• Muscle tears</li>
+                            <li>• Bruising and swelling</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-bold mb-4">Chronic Conditions</h3>
+                        <p class="text-gray-600 mb-4">Long-term support for ongoing issues</p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>• Arthritis management</li>
+                            <li>• Chronic pain relief</li>
+                            <li>• Joint stiffness</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-bold mb-4">Prevention</h3>
+                        <p class="text-gray-600 mb-4">Proactive joint and tissue health</p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>• Joint maintenance</li>
+                            <li>• Flexibility support</li>
+                            <li>• Athletic performance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section></div>
+
+<footer class="footer mt-16">
+  <div class="container py-12">
     <div class="grid md:grid-cols-4 gap-10">
       <div>
         <h4 class="text-white text-xl font-extrabold mb-2">Honour Health</h4>
@@ -121,7 +181,7 @@
           <li><a href="weight_loss.html">Weight Loss</a></li>
           <li><a href="muscle_health.html">Muscle Health</a></li>
           <li><a href="cognitive_wellness.html">Cognitive Wellness</a></li>
-          <li><a href="anti_ageing.html">Anti‑Ageing</a></li>
+          <li><a href="anti_ageing.html">Anti Ageing</a></li>
         </ul>
       </div>
       <div>
