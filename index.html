@@ -73,26 +73,27 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 16px;
-    border-radius: 9999px;
+    padding: 8px 12px;
+    border-radius: 24px;
     background: transparent;
     border: 1px solid transparent;
-    transition: all 0.25s ease;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
     font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
         .nav-item:hover {
     background: var(--light-blue);
     color: var(--primary-blue);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.12);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.12);
 }
 
         .nav-item.active {
     background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
     color: white;
     font-weight: 600;
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
         .hero-text {
@@ -157,17 +158,23 @@
     border: 1px solid var(--silver);
     transition: all 0.25s ease;
     font-weight: 500;
+
+    white-space: nowrap;
 }
 .mobile-menu .nav-item:hover {
     background: var(--light-blue);
     color: var(--primary-blue);
     transform: translateY(-1px);
     box-shadow: 0 8px 16px rgba(37, 99, 235, 0.12);
+
+    white-space: nowrap;
 }
 .mobile-menu .nav-item.active {
     background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
     color: white;
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+
+    white-space: nowrap;
 }
 
         @media (max-width: 768px) {
@@ -219,7 +226,48 @@
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
-    </style>
+    
+.desktop-nav { flex-wrap: nowrap; white-space: nowrap; }
+
+
+/* Desktop dropdown */
+.nav-group { position: relative; }
+.nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 240px;
+    background: white;
+    border: 1px solid var(--silver);
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 16px 30px rgba(0,0,0,0.08);
+    display: none;
+    z-index: 60;
+}
+.nav-group:hover .nav-dropdown { display: block; }
+.nav-dropdown .drop-item {
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.nav-dropdown .drop-item:hover {
+    background: var(--light-blue);
+    color: var(--primary-blue);
+}
+/* Mobile dropdown */
+.mobile-submenu { display: none; padding: 6px 0; }
+.mobile-submenu .drop-item {
+    padding: 10px 12px;
+    border-radius: 12px;
+    margin: 6px 0;
+    background: #f8fafc;
+    border: 1px solid var(--silver);
+}
+
+</style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
@@ -231,18 +279,24 @@
                 </div>
                 
                 <!-- Desktop Navigation -->
-                <div class="desktop-nav hidden md:flex flex-1 justify-center gap-3">
-                    <span class="nav-item active" onclick="showSection('homepage')">Home</span>
-                    <span class="nav-item" onclick="showSection('howto')">How To</span>
-                    <span class="nav-item" onclick="showSection('products')">Products</span>
-                    <span class="nav-item" onclick="showSection('weightloss')">Weight Loss</span>
-                    <span class="nav-item" onclick="showSection('injury')">Injury Repair</span>
-                    <span class="nav-item" onclick="showSection('muscle')">Muscle Health</span>
-                    <span class="nav-item" onclick="showSection('sexual')">Sexual Health</span>
-                    <span class="nav-item" onclick="showSection('antiaging')">Anti Ageing</span>
-                    <span class="nav-item" onclick="showSection('cognitive')">Cognitive Wellness</span>
-                    <span class="nav-item" onclick="showSection('faq')">FAQ</span>
-                </div>
+<div class="desktop-nav hidden md:flex flex-1 justify-center gap-3">
+    <span class="nav-item active" onclick="showSection('homepage')">Home</span>
+    <span class="nav-item" onclick="showSection('howto')">How To</span>
+
+    <div class="nav-group">
+        <span id="navProducts" class="nav-item">Products</span>
+        <div class="nav-dropdown">
+            <div class="drop-item" onclick="showSection('weightloss')">Weight Loss</div>
+            <div class="drop-item" onclick="showSection('injury')">Injury Repair</div>
+            <div class="drop-item" onclick="showSection('muscle')">Muscle Health</div>
+            <div class="drop-item" onclick="showSection('sexual')">Sexual Health</div>
+            <div class="drop-item" onclick="showSection('antiaging')">Anti Ageing</div>
+            <div class="drop-item" onclick="showSection('cognitive')">Cognitive Wellness</div>
+        </div>
+    </div>
+
+    <span class="nav-item" onclick="showSection('faq')">FAQ</span>
+</div>
 
                 <!-- Mobile Menu Button -->
                 <div class="mobile-menu">
@@ -254,21 +308,25 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden bg-white shadow-lg">
-            <div class="px-4 py-2 space-y-2 text-center">
-                <div class="nav-item block py-2" onclick="showSection('homepage'); toggleMobileMenu()">Home</div>
-                <div class="nav-item block py-2" onclick="showSection('howto'); toggleMobileMenu()">How To</div>
-                <div class="nav-item block py-2" onclick="showSection('products'); toggleMobileMenu()">Products</div>
-                <div class="nav-item block py-2" onclick="showSection('weightloss'); toggleMobileMenu()">Weight Loss</div>
-                <div class="nav-item block py-2" onclick="showSection('injury'); toggleMobileMenu()">Injury Repair</div>
-                <div class="nav-item block py-2" onclick="showSection('muscle'); toggleMobileMenu()">Muscle Health</div>
-                <div class="nav-item block py-2" onclick="showSection('sexual'); toggleMobileMenu()">Sexual Health</div>
-                <div class="nav-item block py-2" onclick="showSection('antiaging'); toggleMobileMenu()">Anti Ageing</div>
-                <div class="nav-item block py-2" onclick="showSection('cognitive'); toggleMobileMenu()">Cognitive Wellness</div>
-                <div class="nav-item block py-2" onclick="showSection('faq'); toggleMobileMenu()">FAQ</div>
-            </div>
+<div id="mobileMenu" class="hidden bg-white shadow-lg">
+    <div class="px-4 py-2 space-y-2 text-center">
+        <div class="nav-item block" onclick="showSection('homepage'); toggleMobileMenu()">Home</div>
+        <div class="nav-item block" onclick="showSection('howto'); toggleMobileMenu()">How To</div>
+
+        <div class="nav-item block" onclick="toggleMobileProducts()">Products ▾</div>
+        <div id="mobileProducts" class="mobile-submenu">
+            <div class="drop-item" onclick="showSection('weightloss'); toggleMobileMenu()">Weight Loss</div>
+            <div class="drop-item" onclick="showSection('injury'); toggleMobileMenu()">Injury Repair</div>
+            <div class="drop-item" onclick="showSection('muscle'); toggleMobileMenu()">Muscle Health</div>
+            <div class="drop-item" onclick="showSection('sexual'); toggleMobileMenu()">Sexual Health</div>
+            <div class="drop-item" onclick="showSection('antiaging'); toggleMobileMenu()">Anti Ageing</div>
+            <div class="drop-item" onclick="showSection('cognitive'); toggleMobileMenu()">Cognitive Wellness</div>
         </div>
-    </nav>
+
+        <div class="nav-item block" onclick="showSection('faq'); toggleMobileMenu()">FAQ</div>
+    </div>
+</div>
+</nav>
 
     <!-- Homepage Section -->
     <section id="homepage" class="section active">
@@ -1171,6 +1229,10 @@
 
     <script>
         // Navigation functionality
+
+function isProductSubsection(id) {
+    return ['weightloss','injury','muscle','sexual','antiaging','cognitive'].includes(id);
+}
         function showSection(sectionId) {
             // Hide all sections
             const sections = document.querySelectorAll('.section');
@@ -1188,7 +1250,11 @@
             });
             
             // Find and activate the clicked nav item
-            event.target.classList.add('active');
+            if (isProductSubsection(sectionId)) {
+                document.getElementById('navProducts').classList.add('active');
+            } else {
+                event.target.classList.add('active');
+            }
             
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1196,6 +1262,14 @@
 
         // Mobile menu toggle
         function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function toggleMobileProducts() {
+            const sub = document.getElementById('mobileProducts');
+            sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
+        }
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.toggle('hidden');
         }
